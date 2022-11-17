@@ -14,6 +14,17 @@ public class InvoiceServiceTest {
          * Calculating the fair
          */
         double fare = invoiceGenerator.calculateFare(distance, time);
-        Assert.assertEquals(25.0, fare, 0.0);
+        Assert.assertEquals(25.0, fare,0.0);
+    }
+    /*
+   Step 2 Test Case for minimum fare should give 5
+   */
+    @Test
+    public void givenDistanceAndTime_WhenTotalFareLessThan10_ShouldReturnMinimumFare() {
+        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+        double distance = 0.1;
+        int time = 1;
+        double fare = invoiceGenerator.calculateFare(distance, time);
+        Assert.assertEquals(5.0, fare,0.0);
     }
 }
